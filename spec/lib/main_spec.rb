@@ -47,5 +47,10 @@ RSpec.describe AnagramDictionary do
     it 'finds an anagram' do
       expect(subject.find('rab')).to eq(['bar'])
     end
+
+    it 'finds multiple anagrams' do
+      expect(subject.find('cat')).to eq(['act', 'cat'])
+      expect(subject.find('tac')).to eq(['act', 'cat'])
+    end
   end
 end
