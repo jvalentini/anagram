@@ -3,7 +3,7 @@ require 'main'
 RSpec.describe Dictionary do
   subject { Dictionary.new(['cat', 'bar', 'act']) }
 
-  context '.new' do
+  context '.words' do
     it 'indexes words from a dictionary file' do
       expect(subject.words.count).to be > 0
     end
@@ -23,7 +23,7 @@ end
 RSpec.describe AnagramDictionary do
   subject { AnagramDictionary.new(['cat', 'bar', 'act']) }
 
-  context '.new' do
+  context '.words' do
     it 'sorts each character within a word alphabetically' do
       expect(AnagramDictionary.new(['bar']).words).to start_with('abr')
     end
