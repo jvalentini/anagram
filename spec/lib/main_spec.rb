@@ -34,8 +34,12 @@ RSpec.describe AnagramDictionary do
   end
 
   context '.index' do
-    it 'sorts each character within the index alphabetically' do
+    it 'sorts each character within the indexed word alphabetically' do
       expect(AnagramDictionary.new(['bar']).index).to start_with('abr')
+    end
+
+    it 'sorts each indexed word by character and then sorts all indexed words' do
+      expect(subject.index).to eq(['abr', 'act', 'act'])
     end
   end
 end

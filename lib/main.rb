@@ -31,6 +31,6 @@ class AnagramDictionary < Dictionary
   def index_anagrams(words)
     words.map do |word|
       word.chars.sort.join
-    end
+    end.sort
   end
 end
