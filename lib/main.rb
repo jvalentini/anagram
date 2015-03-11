@@ -2,7 +2,7 @@ class Dictionary
   attr_reader :words
 
   def initialize(words)
-    @words = words
+    @words = words.sort
   end
 
   def self.create_from_file(path)
@@ -16,12 +16,21 @@ class Dictionary
 
     self.new(words)
   end
+end
 
-  def index_anagrams
-    words = self.words.map do |word|
+class AnagramDictionary < Dictionary
+  attr_reader :index
+
+  def initialize(words)
+    super
+    @index = index_anagrams(self.words)
+  end
+
+  private
+
+  def index_anagrams(words)
+    words.map do |word|
       word.chars.sort.join
     end.sort
-
-    Dictionary.new(words)
   end
 end
