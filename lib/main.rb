@@ -1,13 +1,19 @@
 class Dictionary
   attr_accessor :words
 
-  def initialize(path)
-    self.words = []
+  def initialize(words)
+    self.words = words
+  end
+
+  def self.create_from_file(path)
+    words = []
 
     File.open(path) do |f|
       f.each_line do |line|
-        self.words << line.strip
+        words << line.strip
       end
     end
+
+    self.new(words)
   end
 end
