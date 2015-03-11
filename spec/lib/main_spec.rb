@@ -19,11 +19,11 @@ RSpec.describe Dictionary do
 
   context '.index_anagrams' do
     it 'sorts each character within a word alphabetically' do
-      expect(Dictionary.new(['bar']).index_anagrams).to start_with('abr')
+      expect(Dictionary.new(['bar']).index_anagrams.words).to start_with('abr')
     end
 
     it 'sorts the words alphabetically' do
-      expect(subject.index_anagrams).to eq(['abr', 'act', 'act'])
+      expect(subject.index_anagrams.words).to eq(['abr', 'act', 'act'])
     end
   end
 end
