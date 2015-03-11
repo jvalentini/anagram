@@ -2,7 +2,7 @@ class Dictionary
   attr_reader :words
 
   def initialize(words)
-    @words = words
+    @words = words.sort
   end
 
   def self.create_from_file(path)
@@ -22,8 +22,8 @@ class AnagramDictionary < Dictionary
   attr_reader :index
 
   def initialize(words)
-    @words = index_anagrams(words)
-    @index = self.words
+    super
+    @index = index_anagrams(self.words)
   end
 
   private

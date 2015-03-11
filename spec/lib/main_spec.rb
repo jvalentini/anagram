@@ -7,6 +7,10 @@ RSpec.describe Dictionary do
     it 'indexes words from a dictionary file' do
       expect(subject.words.count).to be 3
     end
+
+    it 'sorts the words alphabetically' do
+      expect(subject.words).to eq(['act', 'bar', 'cat'])
+    end
   end
 
   context '.create_from_file' do
@@ -24,8 +28,8 @@ RSpec.describe AnagramDictionary do
   subject { AnagramDictionary.new(['cat', 'bar', 'act']) }
 
   context '.words' do
-    it 'sorts the words alphabetically' do
-      expect(subject.words).to eq(['abr', 'act', 'act'])
+    it 'sorts the words alphabetically and not the characters' do
+      expect(subject.words).to eq(['act', 'bar', 'cat'])
     end
   end
 
