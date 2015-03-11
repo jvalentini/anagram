@@ -53,4 +53,13 @@ RSpec.describe AnagramDictionary do
       expect(subject.find('tac')).to eq(['act', 'cat'])
     end
   end
+
+  context 'when using a real dictionary' do
+    subject { AnagramDictionary.create_from_file('resources/american-english') }
+
+    it 'find anagrams' do
+      expect(subject.find('dog')).to eq(['dog', 'god'])
+      expect(subject).to be_instance_of(AnagramDictionary)
+    end
+  end
 end
