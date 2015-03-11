@@ -1,3 +1,17 @@
+def indexed_word(word)
+  word.chars.sort.join.to_sym
+end
+
+def index_anagrams(words)
+  index = Hash.new { |hash, key| hash[key] = [] }
+
+  words.map do |word|
+    index[indexed_word(word)] << word
+  end
+
+  index
+end
+
 class Dictionary
   attr_reader :words
 
@@ -40,21 +54,5 @@ class AnagramDictionary < Dictionary
     end
 
     anagrams
-  end
-
-  private
-
-  def indexed_word(word)
-    word.chars.sort.join.to_sym
-  end
-
-  def index_anagrams(words)
-    index = Hash.new { |hash, key| hash[key] = [] }
-
-    words.map do |word|
-      index[indexed_word(word)] << word
-    end
-
-    index
   end
 end
