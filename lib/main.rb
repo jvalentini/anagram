@@ -27,17 +27,20 @@ class AnagramDictionary < Dictionary
   end
 
   def find(word)
-    indexed_word = word.chars.sort.join.to_sym
-    self.index[indexed_word]
+    self.index[indexed_word(word)]
   end
 
   private
+
+  def indexed_word(word)
+    word.chars.sort.join.to_sym
+  end
 
   def index_anagrams(words)
     index = Hash.new { |hash, key| hash[key] = [] }
 
     words.map do |word|
-      index[word.chars.sort.join.to_sym] << word
+      index[indexed_word(word)] << word
     end
 
     index
