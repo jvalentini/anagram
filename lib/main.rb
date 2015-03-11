@@ -18,10 +18,10 @@ class Dictionary
   end
 
   def index_anagrams
-    self.words.sort!
-
     self.words = self.words.map do |word|
       word.chars.sort.join
     end
+
+    self.words.sort!
   end
 end

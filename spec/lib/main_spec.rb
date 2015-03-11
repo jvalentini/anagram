@@ -1,7 +1,7 @@
 require 'main'
 
 RSpec.describe Dictionary do
-  subject { Dictionary.new(['cat', 'tac', 'foo', 'act', 'bar']) }
+  subject { Dictionary.new(['cat', 'bar', 'act']) }
 
   context '.new' do
     it 'indexes words from a dictionary file' do
@@ -18,12 +18,12 @@ RSpec.describe Dictionary do
   end
 
   context '.index_anagrams' do
-    it 'sorts the words alphabetically' do
-      expect(subject.index_anagrams).to start_with("act")
+    it 'sorts each character within a word alphabetically' do
+      expect(Dictionary.new(['bar']).index_anagrams).to start_with('abr')
     end
 
-    it 'sorts each character within a word alphabetically' do
-      expect(subject.index_anagrams()[0]).to eq('act')
+    it 'sorts the words alphabetically' do
+      expect(subject.index_anagrams).to eq(['abr', 'act', 'act'])
     end
   end
 end
