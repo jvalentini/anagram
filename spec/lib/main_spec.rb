@@ -56,6 +56,20 @@ RSpec.describe AnagramDictionary do
 
   context 'when using a real dictionary' do
     subject { AnagramDictionary.create_from_file('resources/american-english') }
+    let(:word_count) { subject.words.count }
+    let(:index_count) { subject.index.count }
+
+    it 'contains a large list of words' do
+      expect(word_count).to eq(99171)
+    end
+
+    it 'indexes the words' do
+      expect(index_count).to be > 0
+    end
+
+    it 'has fewer keys in the index than the original list' do
+      expect(index_count).to be < word_count
+    end
 
     it 'find anagrams' do
       expect(subject.find('dog')).to eq(['dog', 'god'])
