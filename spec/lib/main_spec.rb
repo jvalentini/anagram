@@ -10,6 +10,8 @@ RSpec.describe Dictionary do
   end
 
   context '.create_from_file' do
+    subject { Dictionary.create_from_file('resources/test_dict.txt') }
+
     it { expect(subject.words.count).to be > 0 }
 
     it 'removes trailing newlines' do
