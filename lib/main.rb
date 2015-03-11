@@ -19,8 +19,11 @@ class Dictionary
 end
 
 class AnagramDictionary < Dictionary
+  attr_reader :index
+
   def initialize(words)
     @words = index_anagrams(words)
+    @index = self.words
   end
 
   private

@@ -24,12 +24,14 @@ RSpec.describe AnagramDictionary do
   subject { AnagramDictionary.new(['cat', 'bar', 'act']) }
 
   context '.words' do
-    it 'sorts each character within a word alphabetically' do
-      expect(AnagramDictionary.new(['bar']).words).to start_with('abr')
-    end
-
     it 'sorts the words alphabetically' do
       expect(subject.words).to eq(['abr', 'act', 'act'])
+    end
+  end
+
+  context '.index' do
+    it 'sorts each character within the index alphabetically' do
+      expect(AnagramDictionary.new(['bar']).index).to start_with('abr')
     end
   end
 end
