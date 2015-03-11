@@ -29,8 +29,8 @@ class AnagramDictionary < Dictionary
   private
 
   def index_anagrams(words)
-    words = words.map do |word|
+    words.map do |word|
       word.chars.sort.join
-    end.sort
+    end
   end
 end
