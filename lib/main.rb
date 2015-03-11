@@ -26,6 +26,11 @@ class AnagramDictionary < Dictionary
     @index = index_anagrams(self.words)
   end
 
+  def find(word)
+    indexed_word = word.chars.sort.join.to_sym
+    self.index[indexed_word]
+  end
+
   private
 
   def index_anagrams(words)
