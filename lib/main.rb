@@ -20,8 +20,6 @@ class Dictionary
   def index_anagrams
     self.words = self.words.map do |word|
       word.chars.sort.join
-    end
-
-    self.words.sort!
+    end.sort!
   end
 end
