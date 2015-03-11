@@ -10,8 +10,4 @@ class Dictionary
       end
     end
   end
-
-  def word_count
-    self.words.length
-  end
 end

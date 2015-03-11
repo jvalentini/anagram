@@ -5,7 +5,7 @@ RSpec.describe Dictionary do
 
   context '.new' do
     it 'indexes words from a dictionary file' do
-      expect(subject.word_count).to be > 0
+      expect(subject.words.count).to be > 0
     end
 
     it 'removes trailing newlines' do
