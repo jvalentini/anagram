@@ -29,8 +29,12 @@ class AnagramDictionary < Dictionary
   private
 
   def index_anagrams(words)
+    index = Hash.new { |hash, key| hash[key] = [] }
+
     words.map do |word|
-      word.chars.sort.join
-    end.sort
+      index[word.chars.sort.join.to_sym] << word
+    end
+
+    index
   end
 end
