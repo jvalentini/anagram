@@ -5,7 +5,7 @@ RSpec.describe Dictionary do
 
   context '.words' do
     it 'indexes words from a dictionary file' do
-      expect(subject.words.count).to be > 0
+      expect(subject.words.count).to be 3
     end
   end
 
