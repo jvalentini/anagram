@@ -16,4 +16,8 @@ class Dictionary
 
     self.new(words)
   end
+
+  def index_anagrams
+    self.words.sort!
+  end
 end

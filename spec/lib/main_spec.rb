@@ -17,8 +17,9 @@ RSpec.describe Dictionary do
     end
   end
 
-  context '.create_from_file' do
-    it { expect(subject.words.count).to be > 0 }
+  context '.index_anagrams' do
+    it 'sorts the words alphabetically' do
+      expect(subject.index_anagrams).to start_with("act")
+    end
   end
-
 end
