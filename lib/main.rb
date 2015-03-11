@@ -6,7 +6,7 @@ class Dictionary
 
     File.open(path) do |f|
       f.each_line do |line|
-        self.words << line
+        self.words << line.strip
       end
     end
   end
