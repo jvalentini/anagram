@@ -21,5 +21,9 @@ RSpec.describe Dictionary do
     it 'sorts the words alphabetically' do
       expect(subject.index_anagrams).to start_with("act")
     end
+
+    it 'sorts each character within a word alphabetically' do
+      expect(subject.index_anagrams()[0]).to eq('act')
+    end
   end
 end
