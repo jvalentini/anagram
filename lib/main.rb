@@ -1,3 +1,15 @@
+def parse_words_from_file(path)
+  words = []
+
+  File.open(path) do |f|
+    f.each_line do |line|
+      words << line.strip
+    end
+  end
+
+  words
+end
+
 def indexed_word(word)
   word.chars.sort.join.to_sym
 end
@@ -22,18 +34,6 @@ def anagrams_from_index(index)
   end
 
   anagrams
-end
-
-def parse_words_from_file(path)
-  words = []
-
-  File.open(path) do |f|
-    f.each_line do |line|
-      words << line.strip
-    end
-  end
-
-  words
 end
 
 def find_anagrams(words, word=nil)
