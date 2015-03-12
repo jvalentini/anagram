@@ -24,6 +24,18 @@ def anagrams_from_index(index)
   anagrams
 end
 
+def parse_words_from_file(path)
+  words = []
+
+  File.open(path) do |f|
+    f.each_line do |line|
+      words << line.strip
+    end
+  end
+
+  words
+end
+
 class Dictionary
   attr_reader :words
 
@@ -32,15 +44,7 @@ class Dictionary
   end
 
   def self.create_from_file(path)
-    words = []
-
-    File.open(path) do |f|
-      f.each_line do |line|
-        words << line.strip
-      end
-    end
-
-    self.new(words)
+    self.new(parse_words_from_file(path))
   end
 end
 
