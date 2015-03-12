@@ -36,6 +36,10 @@ def parse_words_from_file(path)
   words
 end
 
+def find_anagrams_for_word(word, anagram_index)
+  anagram_index[indexed_word(word)]
+end
+
 class Dictionary
   attr_reader :words
 
@@ -57,7 +61,7 @@ class AnagramDictionary < Dictionary
   end
 
   def find(word)
-    self.index[indexed_word(word)]
+    find_anagrams_for_word(word, self.index)
   end
 
   def anagrams
