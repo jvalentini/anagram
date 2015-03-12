@@ -54,7 +54,14 @@ RSpec.describe AnagramDictionary do
     end
   end
 
-  context 'when using a real dictionary' do
+  context '.anagrams' do
+    it 'outputs all anagrams' do
+      expect(subject.anagrams.count).to eq(1)
+      expect(subject.anagrams[:act]).to eq(['act', 'cat'])
+    end
+  end
+
+  describe 'when using a real dictionary' do
     subject { AnagramDictionary.create_from_file('resources/american-english') }
     let(:word_count) { subject.words.count }
     let(:index_count) { subject.index.count }
@@ -79,6 +86,7 @@ RSpec.describe AnagramDictionary do
     context '.anagrams' do
       it 'outputs all anagrams' do
         expect(subject.anagrams.count).to eq(4446)
+        expect(subject.anagrams[:dgo]).to eq(['dog', 'god'])
       end
     end
   end

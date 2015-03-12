@@ -20,6 +20,7 @@ end
 
 class AnagramDictionary < Dictionary
   attr_reader :index
+  attr_reader :anagrams
 
   def initialize(words)
     super
@@ -30,18 +31,6 @@ class AnagramDictionary < Dictionary
     self.index[indexed_word(word)]
   end
 
-  def anagrams
-    anagrams = []
-
-    self.index.each do |key, value|
-      if value.count > 1
-        anagrams << value
-      end
-    end
-
-    anagrams
-  end
-
   private
 
   def indexed_word(word)
@@ -50,9 +39,17 @@ class AnagramDictionary < Dictionary
 
   def index_anagrams(words)
     index = Hash.new { |hash, key| hash[key] = [] }
+    @anagrams = Hash.new { |hash, key| hash[key] = [] }
 
     words.map do |word|
-      index[indexed_word(word)] << word
+      indexed_word = indexed_word(word)
+
+      if index.has_key?(indexed_word)
+        @anagrams[indexed_word] = index[indexed_word].clone
+        @anagrams[indexed_word] << word
+      end
+
+      index[indexed_word] << word
     end
 
     index
