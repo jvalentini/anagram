@@ -75,5 +75,11 @@ RSpec.describe AnagramDictionary do
       expect(subject.find('dog')).to eq(['dog', 'god'])
       expect(subject).to be_instance_of(AnagramDictionary)
     end
+
+    context '.anagrams', focus: true do
+      it 'outputs all anagrams' do
+        expect(subject.anagrams.count).to eq(4446)
+      end
+    end
   end
 end

@@ -30,6 +30,18 @@ class AnagramDictionary < Dictionary
     self.index[indexed_word(word)]
   end
 
+  def anagrams
+    anagrams = []
+
+    self.index.each do |key, value|
+      if value.count > 1
+        anagrams << value
+      end
+    end
+
+    anagrams
+  end
+
   private
 
   def indexed_word(word)
