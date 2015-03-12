@@ -41,6 +41,10 @@ def find_anagrams_for_word(word, words)
   anagram_index[indexed_word(word)]
 end
 
+def find_anagrams(words)
+  anagrams_from_index(index_anagrams(words))
+end
+
 class Dictionary
   attr_reader :words
 
@@ -66,6 +70,6 @@ class AnagramDictionary < Dictionary
   end
 
   def anagrams
-    anagrams_from_index(self.index)
+    find_anagrams(self.words)
   end
 end
