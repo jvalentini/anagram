@@ -12,6 +12,18 @@ def index_anagrams(words)
   index
 end
 
+def anagrams_from_index(index)
+  anagrams = []
+
+  index.each do |key, value|
+    if value.count > 1
+      anagrams << value
+    end
+  end
+
+  anagrams
+end
+
 class Dictionary
   attr_reader :words
 
@@ -45,14 +57,6 @@ class AnagramDictionary < Dictionary
   end
 
   def anagrams
-    anagrams = []
-
-    self.index.each do |key, value|
-      if value.count > 1
-        anagrams << value
-      end
-    end
-
-    anagrams
+    anagrams_from_index(self.index)
   end
 end
